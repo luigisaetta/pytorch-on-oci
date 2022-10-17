@@ -130,7 +130,7 @@ Le prime due parti sono utilizzate durante il training. Nel training la misura d
 
 Il dataset di test non è utilizzato durante il training, ma lo possiiamo utilizzare alla fine per capire quanto il nostro modello è in grado di generalizzare.
 
-Un primo file di cui dobbiamo registrare la collocazione (il pathname completo) è il file data.yaml
+Un primo file di cui dobbiamo registrare la collocazione (il pathname completo) è il file data.yaml.
 In questo file troviamo l'elenco delle classi di oggetti ed i link per i dataset di train e validation. Riporto un esempio, con due classi
 
 ```
@@ -144,20 +144,22 @@ val: BarCode-detector-6/valid/images
 
 Un mio suggerimento: i percorsi per train e validation sono relativi. Per evitare inutili complicazioni sostituiamoli con i percorsi assoluti.
 
-Se ci spostiamo nella cartella "train" /analogo discorso per validation e test) vi troviamo due sotto-cartelle: una contenente le immagini e l'altra contenente i file con la specifica della posizione di BB rectangles.
+Se ci spostiamo nella cartella "train" (analogo discorso per validation e test) vi troviamo due sotto-cartelle: una contenente le immagini e l'altra contenente i file con la specifica della posizione dei BB rectangles.
 
-nella cartella labels per ciascun file jpeg contenuto nella cartella "images" troviamo un file associato, con eguale nome ma estensione ".txt".
+Nella cartella labels, per ciascun file jpeg contenuto nella cartella "images" troviamo un file associato, con eguale nome ma estensione ".txt".
 In questo file troveremo una riga distinta per ciascun oggetto identificato.
 
 Il formato è:
 codice-classe xc yc width height
 
 Esempio:
+```
 1 0.61171875 0.49921875 0.11953125 0.16640625
 0 0.64609375 0.22734375 0.28671875 0.03984375
 0 0.8328125 0.2890625 0.1109375 0.04453125
+```
 
-In base all'esempio data.yaml di sopra concludiamo che la prima riga è relativa ad un qrcode e le altre a barcodes.
+In base all'esempio data.yaml di sopra concludiamo che la prima riga è relativa ad un qrcode (1) e le altre a barcodes (0).
 
 E' importante notare che le coordinate x ed y, cosi come larghezza ed altezza, sono normalizzate. Xc ed yc identificano il centro del BB rectangle.
 Per tornare ai valori assoluti (pixel) si deve:
@@ -165,7 +167,7 @@ Per tornare ai valori assoluti (pixel) si deve:
 * moltiplicare yc ed height per l'altezza, sempre in pixel, dell'immagine.
 
 Quindi: concludendo:
-* attenzione ai percorsi dei file e directory, a parteire da data.yaml
+* attenzione ai percorsi dei file e directory, a partire da data.yaml
 * per ogni immagine, il labeling è contenuto in un file txt associato; Nel file abbiamo una iga per oggetto, nel formato sopra specificato
 
 
