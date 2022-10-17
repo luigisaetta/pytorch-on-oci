@@ -168,7 +168,52 @@ Per tornare ai valori assoluti (pixel) si deve:
 
 Quindi: concludendo:
 * attenzione ai percorsi dei file e directory, a partire da data.yaml
-* per ogni immagine, il labeling è contenuto in un file txt associato; Nel file abbiamo una iga per oggetto, nel formato sopra specificato
+* per ogni immagine, il labeling è contenuto in un file txt associato; Nel file abbiamo una riga per oggetto, nel formato sopra specificato
+
+## Custom training.
+Abbiamo installato tutte le librerie richieste da YOLO V5, abbiamo effettuato il labeling del dataset, abbiamo portato il dataset, in formato YOLO V5, all'interno di una crtella dedicata nella nostra Notebook Session. A questo punto abbiamo tutti gli ingredienti, pronti, per lanciare una prima sessione di addestramento.
+
+I passi seguenti saranno fatti dal terminal. Ricordiamo di attivare l'ambiente conda che abbiamo preparato, con il comando:
+```
+conda activate /home/datascience/conda/computervision_p37_gpu_v1
+```
+A questo punto, spostiamoci nella directory yolov5, ottenuta dal clone del repository GitHub di Ultralytics.
+
+In questa directory troveremo lo script python (train.py)che utilizzeremo per il training.
+
+Dobbiamo scegliere il modello pre-trained da utilizzare. Per velocizzare, essendo un primo tentativo, utilizziamo **yolov5s.pt**.
+
+Il comando da lanciare è:
+```
+python train.py --img 640 --batch 8 --epochs 60 --data /home/datascience/barcode-dataset/BarCode-detector-6/data.yaml --weights yolov5s.pt
+```
+
+Esaminiamolo:
+* specifichiamo (640) le dimensioni in pixel delle immagini, scalate, su cui il modello lavora. Dipende da quale modello pre-trained usiamo
+* ho abbassato il batch_size (8) per evitare OOM sulla GPU
+* ho specificato 60 epochs
+* data: contiene il persorso assoluto del file data.yaml (vedi sopra)
+* infine: weights definisce il modello pre-trained
+
+Nel mio caso utilizzando il modello "small" e on 60 epochs riesco ad ottenere, in circa 3 minuti, un buon risultato.
+La valutazione sul dataset di "validation" riporta:
+```
+Model summary: 157 layers, 7015519 parameters, 0 gradients, 15.8 GFLOPs
+                 Class     Images  Instances          P          R      mAP50   mAP50-95: 100%|██████████| 2/2 [00:00<00:00,  5.75it/s]                                              
+                   all         21        163      0.835      0.923      0.951      0.612
+               barcode         21        143      0.872       0.86      0.924      0.572
+                qrcode         21         20      0.798      0.986      0.978      0.652
+```
+
+ovvero: una Recall pari a 0.99 ed una Precision pari a 0.80. Un risultato abbastanza buono.
+
+Possiamo fare meglio? Dipende dal caso esaminato e dal dataset. Nel mio caso si. Utilizzando un modello "large" ed 80 epochs riesco a superare 0.95.
+
+Il risultato dell'addestramento è salvato in una sottodirectory all'interno della directory runs/train. Il file è best.pt (pt sta per PyTorch).
+
+## Inferenza con il modello custom addestrato.
+
+
 
 
 
