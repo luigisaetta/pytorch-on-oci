@@ -114,7 +114,7 @@ Roboflow semplifica anche l'esportazione. Genera automaticamente il codice, che 
 
 Quindi: l'unico sforzo richiesto è di avere la pazienza di collezionare un insieme abbastanza grande e variegato di immagini e di effettuare il labeling di tali immagini.
 
-**Quante immagini?** Eh, è una domanda che spesso mi viene posta. Non esiste una riposta valida per qualunque scenario (ricordiamo gli insegnamenti del "NO free-lunch theorem").
+**Quante immagini?** Eh, è una domanda frequente. Non esiste una risposta valida per qualunque scenario (ricordiamo gli insegnamenti del "NO free-lunch theorem").
 
 In alcuni casi **un centinaio di immagini possono essere sufficienti**. Ma devono presentare gli oggetti da riconoscere ed identificare nelle più varie condizioni di reale utilizzo. Inoltre, dipende dall'accuratezza che si vuole ottenere. Regola generale: più immagini si hanno e meglio è.
 
@@ -207,7 +207,13 @@ Model summary: 157 layers, 7015519 parameters, 0 gradients, 15.8 GFLOPs
 
 ovvero: una **Recall** pari a 0.99 ed una **Precision** pari a 0.80. Un risultato abbastanza buono.
 
-Possiamo fare meglio? Dipende dal caso esaminato e dal dataset. Nel mio caso si. Utilizzando un modello "large" ed 80 epochs riesco a superare 0.95.
+Possiamo fare meglio? Dipende dal caso esaminato e dal dataset. Nel mio caso si. Utilizzando un modello "large" ed 80 epochs riesco ad ottenre i seguenti risultati:
+
+|Class     |Images  |Instances      |P          |R       |mAP50   |mAP50-95 |
+|----------|--------|---------------|-----------|--------|--------|---------|
+|   all    |   21   |      163      |   0.966   |  0.962 |  0.979 |   0.78  |
+| barcode  |   21   |      143      |   0.945   |  0.923 |  0.963 |   0.712 |
+| qrcode   |   21   |      20       |   0.987   |  1     |  0.995 |   0.849 |
 
 Il risultato dell'addestramento è salvato in una sottodirectory all'interno della directory runs/train. Il file è best.pt (pt sta per PyTorch).
 
