@@ -195,7 +195,7 @@ Esaminiamolo:
 * data: contiene il persorso assoluto del file data.yaml (vedi sopra)
 * infine: weights definisce il modello pre-trained
 
-Nel mio caso utilizzando il modello "small" e on 60 epochs riesco ad ottenere, in circa 3 minuti, un buon risultato.
+Nel mio caso utilizzando il modello "small" e con 60 epochs riesco ad ottenere, in circa 3 minuti, un buon risultato.
 La valutazione sul dataset di "validation" riporta:
 ```
 Model summary: 157 layers, 7015519 parameters, 0 gradients, 15.8 GFLOPs
@@ -205,13 +205,34 @@ Model summary: 157 layers, 7015519 parameters, 0 gradients, 15.8 GFLOPs
                 qrcode         21         20      0.798      0.986      0.978      0.652
 ```
 
-ovvero: una Recall pari a 0.99 ed una Precision pari a 0.80. Un risultato abbastanza buono.
+ovvero: una **Recall** pari a 0.99 ed una **Precision** pari a 0.80. Un risultato abbastanza buono.
 
 Possiamo fare meglio? Dipende dal caso esaminato e dal dataset. Nel mio caso si. Utilizzando un modello "large" ed 80 epochs riesco a superare 0.95.
 
 Il risultato dell'addestramento è salvato in una sottodirectory all'interno della directory runs/train. Il file è best.pt (pt sta per PyTorch).
 
 ## Inferenza con il modello custom addestrato.
+TODO: 
+
+## Approfondimento: Precision e Recall.
+I termini **Precision** e **Recall** compaiono spesso quando si analizzano le preestazioni di modelli che devono "classificare oggetti".
+
+Consideriamo un esempio "classico" di modello di classificazione: un modello diagnostico, che a partire da una serie di dati istologici vuole identificare se il campione è indicativo di una possibile forma di cancro (caso positivo) oppure no (negativo). (Potremmo star lavorando sul famoso Breast Cancer Dataset).
+
+Se il campione è realmente positivo il nostro modello può prevedere positivo ed avremo un Vero Positivo (TP) oppure può prevedere negativo ed avremo un Falso Negativo (FN).
+Se il campione è negativo il modello può prevedere correttamente negativo ed avremo Vero Negativo (TN) oppure può prevedere positivo ed avremo un Falso Positivo (FP).
+
+La **Recall** misura la capacità del modello ad identificare correttamente i casi positivi. Ovvero, se il caso è positivo qual è la probabilità (condizionata) che il modello dica positivo? E' la Recall.
+La **Precision** misura invece la probabilità che un caso indicato come positivo sia realmente positivo.
+
+Nel caso dell'Object Detection la Recall ci dice quanto il modello è bravo ad identificare un barcode come tale (oppure un qrcode). Quindi una Recall eguale ad 1 vuol dire: tutti i barcode sono identificati e tutti i Qrcode sono identificati. 
+Ma potrebbero esservi FP. Ovvero, il modello potrebbe identificare porzioni di immagine e dire: contengono barcode, sbagliando.
+Quanto più alta è la Precision tanto meno sono i FP.
+
+Se preferite le formule, le potete trovare su [Wikipedia](https://en.wikipedia.org/wiki/Precision_and_recall).
+
+Per coloro che lavorano in ambito biomedico, al posto di Recall si utilizza **"Sensitivity"**: l'abilita di un modello di identificare tutti i casi positivi.
+
 
 
 
