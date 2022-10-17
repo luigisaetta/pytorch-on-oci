@@ -212,26 +212,40 @@ Possiamo fare meglio? Dipende dal caso esaminato e dal dataset. Nel mio caso si.
 Il risultato dell'addestramento è salvato in una sottodirectory all'interno della directory runs/train. Il file è best.pt (pt sta per PyTorch).
 
 ## Inferenza con il modello custom addestrato.
-TODO: 
+Rispetto al Notebook esaminato nella sezione "Un primo Test di YOLO V5", l'unico cambiamento necessario riguarda il codice per caricare il modello custom:
+
+```
+# Model path: the dir with best.pt from training
+MODEL_PATH = "/home/datascience/yolov5/runs/train/exp5/weights/best.pt"
+
+model = torch.hub.load("ultralytics/yolov5", "custom", path=MODEL_PATH)
+```
+
+Il Notebook [yolo_custom_inference](./yolo_custom_inference.ipynb) contiene il codice di esempio completo.
 
 ## Approfondimento: Precision e Recall.
-I termini **Precision** e **Recall** compaiono spesso quando si analizzano le preestazioni di modelli che devono "classificare oggetti".
+I termini **Precision** e **Recall** compaiono spesso quando si analizzano le prestazioni di modelli che devono "classificare oggetti".
 
 Consideriamo un esempio "classico" di modello di classificazione: un modello diagnostico, che a partire da una serie di dati istologici vuole identificare se il campione è indicativo di una possibile forma di cancro (caso positivo) oppure no (negativo). (Potremmo star lavorando sul famoso Breast Cancer Dataset).
 
 Se il campione è realmente positivo il nostro modello può prevedere positivo ed avremo un Vero Positivo (TP) oppure può prevedere negativo ed avremo un Falso Negativo (FN).
+
 Se il campione è negativo il modello può prevedere correttamente negativo ed avremo Vero Negativo (TN) oppure può prevedere positivo ed avremo un Falso Positivo (FP).
 
 La **Recall** misura la capacità del modello ad identificare correttamente i casi positivi. Ovvero, se il caso è positivo qual è la probabilità (condizionata) che il modello dica positivo? E' la Recall.
+
 La **Precision** misura invece la probabilità che un caso indicato come positivo sia realmente positivo.
 
 Nel caso dell'Object Detection la Recall ci dice quanto il modello è bravo ad identificare un barcode come tale (oppure un qrcode). Quindi una Recall eguale ad 1 vuol dire: tutti i barcode sono identificati e tutti i Qrcode sono identificati. 
 Ma potrebbero esservi FP. Ovvero, il modello potrebbe identificare porzioni di immagine e dire: contengono barcode, sbagliando.
 Quanto più alta è la Precision tanto meno sono i FP.
 
-Se preferite le formule, le potete trovare su [Wikipedia](https://en.wikipedia.org/wiki/Precision_and_recall).
+Se preferite le formule, come me, le potete trovare su [Wikipedia](https://en.wikipedia.org/wiki/Precision_and_recall).
 
-Per coloro che lavorano in ambito biomedico, al posto di Recall si utilizza **"Sensitivity"**: l'abilita di un modello di identificare tutti i casi positivi.
+Per coloro che lavorano in ambito biomedicale, al posto di Recall si utilizza **"Sensitivity"**: l'abilita di un modello di identificare tutti i casi positivi.
+
+In italiano Sensitivity si traduce con **Sensibilità**. Per darvi un'idea concreta, negli ultimi due anni abbiamo spesso sentito perlare della Sensibilità dei test diagnostici per il COVID19.
+
 
 
 
