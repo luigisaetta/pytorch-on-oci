@@ -4,7 +4,7 @@
 
 Il tema della sicurezza è un tema molto ampio e, per ragioni di tempo e spazio, non posso certamente esaurirlo nell'ambito di questo progetto.
 
-Tuttavia, la mia esperienza con oramai decine di clienti, che utilizzano il nostro Cloud e la nostra piattaforma OCI Data Science, ha mostrato che spesso essi hanno difficoltà e non riescono ad utilizzare rapidamente le risorse Cloud a seguito di una visione no completamente chiara di come gestire tematiche legate alle autorizzazioni all'utilizzo dei servizi. 
+Tuttavia, la mia esperienza con oramai decine di clienti, che utilizzano il nostro Cloud e la nostra piattaforma OCI Data Science, ha mostrato che spesso essi hanno difficoltà e non riescono ad utilizzare rapidamente le risorse Cloud a seguito di una visione non completamente chiara di come gestire tematiche legate alle autorizzazioni all'utilizzo dei servizi. 
 
 In questa nota, proverò ad essere il più possibile chiaro e a fornire tutte le informazioni utili e necessarie per poter impostare le autorizzazioni e consentire al team di Data Scientist di essere rapidamente produttivi.
 
@@ -100,3 +100,5 @@ allow dynamic-group DataScienceDG to manage objects in compartment DSCompartment
 allow dynamic-group DataScienceDG to use log-groups in compartment DSCompartment
 allow dynamic-group DataScienceDG to use log-content in compartment DSCompartment
 ```
+
+Per quanto riguarda l'Object Storage è importante osservare che le policy specificate consentono di accedere soltanto ai bucket contenuti nel compartimento DSCompartment. In questo modo siamo sicuri di confinare il lavoro dei Data Scientist in tale compartimento. Se essi dovranno accedere ad altri compartimenti, le policy dovranno essere adeguate.
