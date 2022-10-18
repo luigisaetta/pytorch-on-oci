@@ -99,6 +99,7 @@ allow dynamic-group DataScienceDG to manage object-family in compartment DSCompa
 allow dynamic-group DataScienceDG to manage objects in compartment DSCompartment
 allow dynamic-group DataScienceDG to use log-groups in compartment DSCompartment
 allow dynamic-group DataScienceDG to use log-content in compartment DSCompartment
+Allow dynamic-group DataScienceDG to use virtual-network-family in compartment DSCompartment
 ```
 
 Per quanto riguarda l'Object Storage è importante osservare che le policy specificate consentono di accedere soltanto ai bucket contenuti nel compartimento DSCompartment. In questo modo siamo sicuri di confinare il lavoro dei Data Scientist in tale compartimento. Se essi dovranno accedere ad altri compartimenti, le policy dovranno essere adeguate.
@@ -119,6 +120,6 @@ Facciamo una semplificazione: all'interno del gruppo gli utenti hanno eguali pri
 Le policy da definire sono:
 ```
 allow group DataScientistGroup to manage data-science-family in compartment DSCompartment
+allow group DataScientistGroup to use virtual-network-family in compartment DSCompartment
+allow service datascience to use virtual-network-family in compartment DSCompartment
 ```
-
-TODO: credo di dover inserire anche policy per consentire a data science di utilizzare la rete !!!
