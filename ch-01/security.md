@@ -52,13 +52,13 @@ Quindi, lo scenario è il seguente: il Data Scientist è autorizzato ad accedere
 
 I passi di configurazione, che devono essere eseguiti da un OCI Admin, sono i seguenti:
 1. Creazione di un **compartimento** dedicato al team di Data Scientist ed alle loro risorse
-2. Creazione di un **gruppo di utenti**, in cui andranno inseriti gli account di tutti i membri del team
-3. Creazione di un **Dynamic Group**, in cui vanno inserite le "risorse" da autorizzare
-4. Definizione di un **insieme di Policy**, che autorizzano
+2. Creazione di un **Dynamic Group**, in cui vanno inserite le "risorse" da autorizzare
+3. Definizione di un **insieme di Policy**, che autorizzano
+4. Creazione di un **gruppo di utenti**, in cui andranno inseriti gli account di tutti i membri del team
 
 ## Compartimento
 
-E' un raggruppamento logico di risorse. Conviene colocare le risorse (progetti, Notebook Session, bucket) nello stesso compratimento in modo da poter applicare in modo relativamente semplice le policy e poter gestire il monitoraggio del consumo di risorse (per il billing, ad esempio)
+E' un raggruppamento logico di risorse. Conviene collocare le risorse (progetti, Notebook Session, bucket) nello stesso compratimento in modo da poter applicare in modo relativamente semplice le policy e poter gestire il monitoraggio del consumo di risorse (per il billing, ad esempio)
 
 Come ogni risorsa in OCI, il compartimento oltre ad un nome ha un identificativo, detto OCID. Prendiamone nota, perchè dovremo utilizzarlo.
 
@@ -68,7 +68,7 @@ E' nel Dynamic Group che andremo ad inserire tutte le "risorse" che vogliamo uti
 
 Perchè dinamico? Perchè nel tempo aggiungeremo, ad esempio, Notebook Sessions (o progetti) e ovviamente non vogliamo dover rivedere le policy ogni volta.
 
-La definizione del Dinamyc Group quindi dirà qualcosa del genere: "nel dynamic group DataScienceDG vi sono tutte le Notebook Session create nel compartimento DSCompartment"
+La definizione del Dynamic Group quindi dirà qualcosa del genere: "nel Dynamic Group DataScienceDG vi sono tutte le Notebook Session create nel compartimento DSCompartment"
 
 Il nostro OCI Admin dovrà quindi creare un Dynamic Group con un istruzione del tipo:
 ```
@@ -102,3 +102,21 @@ allow dynamic-group DataScienceDG to use log-content in compartment DSCompartmen
 ```
 
 Per quanto riguarda l'Object Storage è importante osservare che le policy specificate consentono di accedere soltanto ai bucket contenuti nel compartimento DSCompartment. In questo modo siamo sicuri di confinare il lavoro dei Data Scientist in tale compartimento. Se essi dovranno accedere ad altri compartimenti, le policy dovranno essere adeguate.
+
+## Autorizzare le persone
+
+A questo punto dobbiamo compiere l'ultimo passo: **autorizzare i Data Scientist** per poter creare, attivare, disattivare le Notebook Session.
+
+Le autorizzzioni sono sempre concesse a livello di gruppi. 
+
+Quindi, la procedura è: 
+1. Creaimo un gruppo di utenti (DataScientistGroup)
+2. Inseriamo gli account degli utenti in questo gruppo
+3. Definiamo policy per autorizzare il gruppo DataScientistGroup
+
+Facciamo una semplificazione: all'interno del gruppo gli utenti hanno eguali privilegi e possono sia creare che attivare/disattivare Notebook Session nel compartimento.
+
+Le policy da definire sono:
+```
+allow group DataScientistGroup to manage data-science-family in compartment DSCompartment
+```
