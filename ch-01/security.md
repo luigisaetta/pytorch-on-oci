@@ -76,7 +76,7 @@ ALL {resource.type='datasciencenotebooksession',resource.compartment.id='ocid1.c
 ```
 laddove in resource.compartment.id abbiamo specificato l'OCID del nostro compartimento.
 
-Se nel nostro lavoro vogliamo anche utilizzare i JOBS, per eseguire codice in modalità batch, dovremo inserire un'altra specifica nella definizione del Dynamic Group"
+Se nel nostro lavoro vogliamo anche utilizzare i **JOBS**, per eseguire codice in modalità batch, dovremo inserire un'altra specifica nella definizione del Dynamic Group"
 ```
 ALL {resource.type='datasciencejobrun', resource.compartment.id='ocid1.compartment.oc1..aaaaaaaag2cpni5qj6li5ny6ehuahhepbpveopobooayqfeudqygdtfexyzx'}
 ```
@@ -120,3 +120,5 @@ Le policy da definire sono:
 ```
 allow group DataScientistGroup to manage data-science-family in compartment DSCompartment
 ```
+
+TODO: credo di dover inserire anche policy per consentire a data science di utilizzare la rete !!!
