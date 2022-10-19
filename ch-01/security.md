@@ -4,7 +4,7 @@
 
 Il tema della sicurezza è un tema molto ampio e, per ragioni di tempo e spazio, non posso certamente esaurirlo nell'ambito di questo progetto.
 
-Tuttavia, la mia esperienza con oramai decine di clienti, che utilizzano il nostro Cloud e la nostra piattaforma OCI Data Science, ha mostrato che spesso essi hanno difficoltà e non riescono ad utilizzare rapidamente le risorse Cloud a seguito di una visione non completamente chiara di come gestire tematiche legate alle autorizzazioni all'utilizzo dei servizi. 
+Tuttavia, la mia esperienza con molti clienti, che utilizzano il nostro Cloud e la nostra piattaforma OCI Data Science, ha mostrato che spesso essi hanno difficoltà e non riescono ad utilizzare rapidamente le risorse Cloud a seguito di una visione non completamente chiara di come gestire tematiche legate alle autorizzazioni all'utilizzo dei servizi. 
 
 In questa nota, proverò ad essere il più possibile chiaro e a fornire tutte le informazioni utili e necessarie per poter impostare le autorizzazioni e consentire al team di Data Scientist di essere rapidamente produttivi.
 
