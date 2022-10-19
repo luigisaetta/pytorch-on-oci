@@ -35,7 +35,7 @@ A questo punto vi sono due possibilità:
 
 Il secondo meccanismo è detto **"Resource Principal" (RP)**
 
-Se si vuole utilizzare il primo meccanismo, la persona che esegue il codice dovrà fornire una **coppia di chiavi** (pubblica, privata) e la chiave privata è utilizzata per firmare tutte le chiamate REST (l'accesso ai servizi Cloud all fine comporta sempre REST call).
+Se si vuole utilizzare il primo meccanismo, la persona che esegue il codice dovrà fornire una **coppia di chiavi** (pubblica, privata) e la chiave privata è utilizzata per firmare tutte le chiamate REST (l'accesso ai servizi Cloud alla fine comporta sempre REST call).
 Questo è l'unico meccanismo disponibile se si vogliono invocare servizi Cloud al di fuori di OCI Data Science (ad esempio da codice che gira sul proprio portatile).
 
 Se si lavora all'interno di OCI Data Science il meccanismo **più semplice** e più comunemente utilizzato è il Resource Principal.
@@ -58,7 +58,7 @@ I passi di configurazione, che devono essere eseguiti da un OCI Admin, sono i se
 
 ## Compartimento
 
-E' un raggruppamento logico di risorse. Conviene collocare le risorse (progetti, Notebook Session, bucket) nello stesso compratimento in modo da poter applicare in modo relativamente semplice le policy e poter gestire il monitoraggio del consumo di risorse (per il billing, ad esempio)
+E' un raggruppamento logico di risorse. Conviene collocare le risorse (progetti, Notebook Session, bucket) nello stesso compartimento in modo da poter applicare in modo relativamente semplice le policy e poter gestire il monitoraggio del consumo di risorse (per il billing, ad esempio)
 
 Come ogni risorsa in OCI, il compartimento oltre ad un nome ha un identificativo, detto OCID. Prendiamone nota, perchè dovremo utilizzarlo.
 
@@ -70,7 +70,7 @@ Perchè dinamico? Perchè nel tempo aggiungeremo, ad esempio, Notebook Sessions 
 
 La definizione del Dynamic Group quindi dirà qualcosa del genere: "nel Dynamic Group DataScienceDG vi sono tutte le Notebook Session create nel compartimento DSCompartment"
 
-Il nostro OCI Admin dovrà quindi creare un Dynamic Group con un istruzione del tipo:
+Il nostro OCI Admin dovrà quindi creare un Dynamic Group con un'istruzione del tipo:
 ```
 ALL {resource.type='datasciencenotebooksession',resource.compartment.id='ocid1.compartment.oc1..aaaaaaaag2cpni5qj6li5ny6ehuahhepbpveopobooayqfeudqygdtfexyzx'}
 ```
@@ -89,7 +89,7 @@ Una nota importante, che deriva dalla mia esperienza: si deve fare molta attenzi
 
 A questo punto, le policy autorizzeranno il Dynamic Group.
 
-Alcune policy sono definite a livello di root compartment (e valgono per tutti gli altri compartimenti). Altre policy possono essere definite a livello del singolo compartimento.
+Alcune policy sono definite a livello di compartimento root (e valgono per tutti gli altri compartimenti). Altre policy possono essere definite a livello del singolo compartimento.
 
 Per semplificare, riporto la lista di policy minime che, secondo me, vanno definite, per poter lavorare, a livello del nostro compartimento (che abbiamo chiamato DSCompartment)
 ```
@@ -108,10 +108,10 @@ Per quanto riguarda l'Object Storage è importante osservare che le policy speci
 
 A questo punto dobbiamo compiere l'ultimo passo: **autorizzare i Data Scientist** per poter creare, attivare, disattivare le Notebook Session.
 
-Le autorizzzioni sono sempre concesse a livello di gruppi. 
+Le autorizzazioni sono sempre concesse a livello di gruppi. 
 
 Quindi, la procedura è: 
-1. Creaimo un gruppo di utenti (DataScientistGroup)
+1. Creiamo un gruppo di utenti (DataScientistGroup)
 2. Inseriamo gli account degli utenti in questo gruppo
 3. Definiamo policy per autorizzare il gruppo DataScientistGroup
 
