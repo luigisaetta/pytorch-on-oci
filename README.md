@@ -5,7 +5,8 @@ For now, all the chapters are written in Italian. It is possible that, in a near
 
 ## Stato: WIP.
 Il lavoro è iniziato a **fine ottobre 2022** e, malgrado il mio entusiasmo, posso dedicarvi soltanto la parte di tempo libero che non dedico alle mie due figlie, alla corsa ed al triathlon.
-Ma, prometto che aggiornerò e renderò via via più ricchi i contenuti, con regolarità. L'obiettivo è: ogni volta che mi verrà l'idea di un esempio da sviluppare, lo includerò.
+
+Ma, prometto che aggiornerò e renderò via via più ricchi i contenuti, con ragionevole regolarità. L'obiettivo è: ogni volta che mi verrà l'idea di un esempio, di un concetto da sviluppare, lo includerò.
 
 ## Perchè PyTorch.
 E' una lunga storia. In origine, tutti i miei studi sul **Deep Learning** sono stati basati su **Keras**. Ma, mi sono via via reso conto che il mondo dei ricercatori ed i contributi da parte delle aziende che lavorano sull'Open Source vanno sempre più nella direzione di un'adozione di PyTorch.
@@ -15,3 +16,4 @@ Ad esempio, nel campo del NLP se si vuole utilizzare i modelli distribuiti su **
 
 ## Capitoli
 [Ch-01: creazione di un ambiente PyTorch e primi test](./ch-01/ch-01.md)
+[Ch-02: lavorare con i dataset](./ch-02/ch-02.md)
