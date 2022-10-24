@@ -18,3 +18,9 @@ Ad esempio, nel campo del NLP se si vuole utilizzare i modelli distribuiti su **
 [Ch-01: creazione di un ambiente PyTorch e primi test](./ch-01/ch-01.md)
 
 [Ch-02: lavorare con i dataset](./ch-02/ch-02.md)
+
+[Ch-03: un primo esempio di rete Fully Connected](./ch-03/ch-03.md)
+
+[Ch-04: PyTorch Lightning](./ch-04/ch-04.md)
+
+
