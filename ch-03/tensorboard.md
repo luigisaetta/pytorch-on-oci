@@ -9,7 +9,7 @@ Con PyTorch, ed in particolare (vedi cap. 4) con PyTorch Lightning, è abbastanz
 
 Uno strumento che è spesso utilizzato, in combinazione con PyTorch, per visualizzare l'andamento delle metriche è **TensorBoard**.
 
-<img src="https://github.com/luigisaetta/pytorch-on-oci/blob/main/ch-03/tensorboard1.png" width="48">
+<img src="https://github.com/luigisaetta/pytorch-on-oci/blob/main/ch-03/tensorboard1.png" width="400">
 
 Tuttavia, l'utilizzo di una Notebook Session per l'addestramento comporta una complicazione: non è possibile eseguire Tensorboard all'interno della NB session, come faremmo all'interno di una normale VM, perchè la NB session non consente l'accesso alla porta su cui il server di TensorBoard è in ascolto.
 
