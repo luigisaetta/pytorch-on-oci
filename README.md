@@ -26,4 +26,6 @@ Ad esempio, nel campo del NLP se si vuole utilizzare i modelli distribuiti su **
 * [Utilizzare TensorBoard in OCI Data Science](./ch-03/tensorboard.md)
 
 [Ch-04: PyTorch Lightning](./ch-04/ch-04.md)
-* [CNN con Lightning per il MNIST dataset](./ch-04/lightning_mnist_cnn.ipynb) 
+* [CNN con Lightning per il MNIST dataset](./ch-04/lightning_mnist_cnn.ipynb)
+* [Salvare un modello PyTorch nel Model Catalog](./ch-04/pytorch_model_catalog.ipynb)
+
