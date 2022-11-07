@@ -1,0 +1,22 @@
+MODEL_ARTIFACT_VERSION: '3.0'
+MODEL_DEPLOYMENT:
+  INFERENCE_CONDA_ENV:
+    INFERENCE_ENV_PATH: oci://custom_conda_envs@frqap2zhtzbe/conda_environments/gpu/mycomputervision_p37_gpu_/1.0/mycomputervision_p37_gpu_v1_0
+    INFERENCE_ENV_SLUG: mycomputervision_p37_gpu_v1_0
+    INFERENCE_ENV_TYPE: published
+    INFERENCE_PYTHON_VERSION: '3.7'
+MODEL_PROVENANCE:
+  PROJECT_OCID: ''
+  TENANCY_OCID: ''
+  TRAINING_CODE:
+    ARTIFACT_DIRECTORY: /home/datascience/pytorch-on-oci/ch-04/pytorch_artifact_dir
+  TRAINING_COMPARTMENT_OCID: ''
+  TRAINING_CONDA_ENV:
+    TRAINING_ENV_PATH: oci://service-conda-packs@id19sfcrra6z/service_pack/cpu/Computer_Vision_for_CPU_on_Python_3.7/1.0/computervision_p37_cpu_v1
+    TRAINING_ENV_SLUG: computervision_p37_cpu_v1
+    TRAINING_ENV_TYPE: data_science
+    TRAINING_PYTHON_VERSION: '3.7'
+  TRAINING_REGION: ''
+  TRAINING_RESOURCE_OCID: ''
+  USER_OCID: ''
+  VM_IMAGE_INTERNAL_ID: ''
