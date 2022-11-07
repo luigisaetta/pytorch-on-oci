@@ -29,3 +29,5 @@ Ad esempio, nel campo del NLP se si vuole utilizzare i modelli distribuiti su **
 * [CNN con Lightning per il MNIST dataset](./ch-04/lightning_mnist_cnn.ipynb)
 * [Salvare un modello PyTorch nel Model Catalog](./ch-04/pytorch_model_catalog.ipynb)
 
+[Ch-05: distribuire i modelli](./ch-05/ch-05.md)
+* [CNN con Lightning per il MNIST dataset: formato ONNX](./ch-05/lightning_to_onnx.ipynb)
