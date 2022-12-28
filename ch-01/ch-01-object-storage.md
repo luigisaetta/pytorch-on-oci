@@ -20,4 +20,7 @@ la copia da/per l'Object Storage.
 
 Nel Notebook [files_and_object_storage.ipynb](./files_and_object_storage.ipynb) mostro come utilizzare queste funzioni.
 
+## Impiego di Ocifs.
+
+TODO
 
