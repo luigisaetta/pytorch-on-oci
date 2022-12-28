@@ -20,5 +20,8 @@ Loss Function per problemi di **classificazione**:
 | classificazione  |   Nessuna               | nn.BCEWithLogitsLoss  | Binary Cross Entropy, ultimo layer senza sigmoid,<br>numericamente più stabile|
 | classificazione multiclasse | log_softmax | nn.NLLLoss | ... |
 
+## Referenze
+
+[Neptune AI](https://neptune.ai/blog/pytorch-loss-functions)
 
 
