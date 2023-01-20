@@ -7,12 +7,16 @@ Possiamo effettuare differenti training dello stesso modello, con differenti ipe
 e collegare ai parametri utilizzati nei vari "esperimenti".
 
 ## Setup.
-Per installare e configurare MLFlow in Oracle OCI è possibile utilizzare gli script Terraform forniti nel github
+Per installare e configurare MLFlow in Oracle OCI è possibile utilizzare gli script Terraform forniti nel github:
 
 [QuickStart per MLFLow](https://github.com/oracle-quickstart/oci-mlflow)
 
-# Integrazione con OCI Data Science.
+## Integrazione con OCI Data Science.
 All'interno di un Notebook o di un JOB è possibile invocare l'API Python di MLFlow.
+
+In particolare, nel NB [mlflow_with_lightning](https://github.com/luigisaetta/pytorch-on-oci/blob/main/ch-mlflow/lightning_mnist_cnn_mlflow.ipynb) vediamo come è semplice integrare MLFlow con PyTorch Lightning
+
+
 
 
 
