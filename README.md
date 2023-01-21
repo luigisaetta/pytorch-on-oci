@@ -31,3 +31,6 @@ Ad esempio, nel campo del NLP se si vuole utilizzare i modelli distribuiti su **
 
 [Ch-05: distribuire i modelli](./ch-05/ch-05.md)
 * [CNN con Lightning per il MNIST dataset: formato ONNX](./ch-05/lightning_to_onnx.ipynb)
+
+[Ch-MLflow: integrazione con MLflow](./ch-mlflow.mc)
+* [Integrare Lightning con MLflow](./ch-mlflow/lightning_mnist_cnn_mlflow.ipynb)
