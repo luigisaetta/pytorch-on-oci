@@ -30,7 +30,7 @@ Ovviamente, per avere la velocità in fase di inferenza, è indispensabile utili
 ## Installazione di YOLO V5.
 Abbiamo già a disposizione, dopo aver eseguito i passi descritti nel cap. 1, una Notebook Session con GPU P100. Adesso, i passi che dobbiamo compiere sono necessari per avere un **ambiente software completo** e, in particolare, disporre delle librerie comunemente utilizzate per la **Computer Vision**.
 
-Innanzututto, conviene attivare un nuovo dedicato ambiente conda, a partire da un ambiente, messo a disposizione da OCI Data Science, specializzato per la Computer Vision.
+Innanzitutto, conviene attivare un nuovo dedicato ambiente conda, a partire da un ambiente, messo a disposizione da OCI Data Science, specializzato per la Computer Vision.
 L'ambiente da cui partiamo è: **Computer Vision for GPU on Python 3.7**.
 
 Il comando che andiamo ad eseguire nel terminal è:
@@ -207,7 +207,7 @@ Model summary: 157 layers, 7015519 parameters, 0 gradients, 15.8 GFLOPs
 
 ovvero: una **Recall** pari a 0.99 ed una **Precision** pari a 0.80. Un risultato abbastanza buono.
 
-Possiamo fare meglio? Dipende dal caso esaminato e dal dataset. Nel mio caso si. Utilizzando un modello "large" ed 80 epochs riesco ad ottenre i seguenti risultati:
+Possiamo fare meglio? Dipende dal caso esaminato e dal dataset. Nel mio caso si. Utilizzando un modello "large" ed 80 epochs riesco ad ottenere i seguenti risultati:
 
 |Class     |Images  |Instances      |P          |R       |mAP50   |mAP50-95 |
 |----------|--------|---------------|-----------|--------|--------|---------|
