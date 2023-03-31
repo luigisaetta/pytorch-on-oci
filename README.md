@@ -34,3 +34,5 @@ Ad esempio, nel campo del NLP se si vuole utilizzare i modelli distribuiti su **
 
 [Ch-MLflow: integrazione con MLflow](./ch-mlflow/ch-mlflow.md)
 * [Integrare Lightning con MLflow](./ch-mlflow/lightning_mnist_cnn_mlflow.ipynb)
+
+[Ch-object-tracking](./ch-object-tracking/ch-object-tracking.md)
