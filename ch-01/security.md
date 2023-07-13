@@ -87,7 +87,7 @@ Una nota importante, che deriva dalla mia esperienza: si deve fare molta attenzi
 
 ## Le Policy
 
-A questo punto, le policy autorizzeranno il Dynamic Group.
+A questo punto, le **policy** autorizzeranno il Dynamic Group.
 
 Alcune policy sono definite a livello di compartimento root (e valgono per tutti gli altri compartimenti). Altre policy possono essere definite a livello del singolo compartimento.
 
